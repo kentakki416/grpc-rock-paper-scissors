@@ -38,15 +38,27 @@ protoc --go_out=. --go-grpc_out=require_unimplemented_servers=false:. ./proto/ro
 // ※エラーが出る場合は下記のコマンドを実行
 export GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
+
+// デバッグ用のツールgrpc_cliをインストール
+brew tap grpc/grpc
+brew install grpc
 ```
  
 # Usage
 
  
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+git clone https://github.com/kentakki416/grpc-rock-paper-scissors.git
+go run ./cmd/api
+// 別のターミナルを立ち上げて下記コマンドを実行
+grpc_cli ls localhost:50051 game.RockPaperScissorsService
+// 以下の２つが返ってくればサーバーが立ち上がっている
+PlayGame
+ReportMatchResults
+//実際にじゃんけんを行う（1:グーを指定）
+grpc_cli call localhost:50051 game.RockPaperScissorsService.PlayGame 'handShapes: 1'
+//対戦結果の確認
+grpc_cli call localhost:50051 game.RockPaperScissorsService.ReportMatchResults ''
 ```
  
 # Note
