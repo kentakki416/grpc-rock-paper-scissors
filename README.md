@@ -4,7 +4,29 @@
  
 # DEMO
  
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+```
+start Rock-paper-scissors game.
+1: play game
+2: show match results
+3: exit
+
+Invalid commnad
+1: play game
+2: show match results
+3: exit
+1
+Please enter Rock, Paper, or Scissors.
+1: Rock
+2: Paper
+3: Scissors
+please enter >1
+***********************************
+Your hand shapes: ROCK 
+Opponent hand shapes: SCISSORS 
+Result: WIN 
+***********************************
+
+```
  
 # Features
  
@@ -49,6 +71,8 @@ brew install grpc
  
 ```bash
 git clone https://github.com/kentakki416/grpc-rock-paper-scissors.git
+
+// ----------サーバー側の動作確認------------
 go run ./cmd/api
 // 別のターミナルを立ち上げて下記コマンドを実行
 grpc_cli ls localhost:50051 game.RockPaperScissorsService
@@ -59,6 +83,9 @@ ReportMatchResults
 grpc_cli call localhost:50051 game.RockPaperScissorsService.PlayGame 'handShapes: 1'
 //対戦結果の確認
 grpc_cli call localhost:50051 game.RockPaperScissorsService.ReportMatchResults ''
+
+// --------クライアント側の動作確認-----------
+go run ./cmd/cli
 ```
  
 # Note
