@@ -28,17 +28,6 @@ Result: WIN
 
 ```
  
-# Features
- 
-"hoge"のセールスポイントや差別化などを説明する
- 
-# Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
- 
-* huga 3.5.2
-* hogehuga 1.0.2
- 
 # Installation
  
 プロジェクトで使用したライブラリと実行した手順
@@ -88,23 +77,3 @@ grpc_cli call localhost:50051 game.RockPaperScissorsService.ReportMatchResults '
 go run ./cmd/cli
 ```
  
-# Note
- 
-注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
- 
-# License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
